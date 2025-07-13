@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nature Heaven - Plant Store</title>
+  <title>Nature Haven</title>
+    <link rel="icon" type="image/png" href="NH.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    /* Base Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Arial', sans-serif;
+    }
+
+    body {
+      background: #f5f5f5;
+    }
+
+    /* Header */
+    .header {
+      background: #2bae66;
+      padding: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: white;
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: bold;
+    }
+
+    .search-bar {
+      flex: 0 1 500px;
+      padding: 0.8rem;
+      border-radius: 25px;
+      border: none;
+      outline: none;
+    }
+
+    .user-actions i {
+      font-size: 1.5rem;
+      margin-left: 1rem;
+      cursor: pointer;
+    }
+
+    /* Main Layout */
+    .container {
+      display: flex;
+      gap: 2rem;
+      padding: 2rem;
+    }
+
+    /* Sidebar */
+    .categories {
+      width: 250px;
+      background: white;
+      padding: 1rem;
+      border-radius: 10px;
+    }
+
+    .category-item {
+      padding: 0.8rem;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .category-item:hover {
+      background: #2bae66;
+      color: white;
+      border-radius: 5px;
+    }
+
+    /* Product Grid */
+    .products {
+      flex: 1;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .product-card {
+      background: white;
+      border-radius: 10px;
+      padding: 1rem;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      text-align: center;
+      transition: 0.3s;
+    }
+
+    .product-card:hover {
+      transform: scale(1.05);
+    }
+
+    .product-image {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    .add-to-cart {
+      margin-top: 10px;
+      padding: 10px;
+      background: #2bae66;
+      color: white;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: 0.3s;
+    }
+
+    .add-to-cart:hover {
+      background: #248a50;
+    }
+
+    /* Cart Section */
+    .cart-section {
+      position: fixed;
+      right: -400px;
+      top: 0;
+      width: 400px;
+      height: 100vh;
+      background: white;
+      box-shadow: -2px 0 10px rgba(0,0,0,0.1);
+      transition: 0.3s;
+      padding: 1rem;
+    }
+
+    .cart-section.active {
+      right: 0;
+    }.donate-AI {
+            position: fixed;
+            right: 2rem;
+            bottom: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn-donate {
+            background: #2bae66;
+            color: white;
+        }
+
+        .btn-AI  {
+            background: #1d5c42;
+            color: white;
+        }
+
+        footer {
+            background: #1d5c42;
+            color: white;
+            padding: 2rem 5%;
+            text-align: center;
+        }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="logo">Nature heaven</div>
+    <input type="text" class="search-bar" placeholder="Search plants, tools, fertilizers...">
+    <div class="user-actions">
+      <i class="fas fa-user"></i>
+      <i class="fas fa-shopping-cart" id="cart-icon"></i>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <div class="container">
+    <!-- Categories -->
+    <aside class="categories">
+      <h3>Categories</h3>
+      <div class="category-item" onclick="redirectCategory('Indoor Plants')">Indoor Plants</div>
+      <div class="category-item" onclick="redirectCategory('Outdoor Plants')">Outdoor Plants</div>
+      <div class="category-item" onclick="redirectCategory('Seeds')">Seeds</div>
+      <div class="category-item" onclick="redirectCategory('Gardening Tools')">Gardening Tools</div>
+      <div class="category-item" onclick="redirectCategory('Fertilizers')">Fertilizers</div>
+      <div class="category-item" onclick="redirectCategory('Tribal Crafts')">Tribal Crafts</div>
+      <div class="category-item" onclick="redirectCategory('Organic Vegetables')">Organic Vegetables</div>
+      <div class="category-item" onclick="redirectCategory('Organic Flowers')">Organic Flowers</div>
+    </aside>
+    <!-- Replace only this portion inside the <main class="products"> ... </main> -->
+
+<main class="products" id="tools">
+    <div class="product-card">
+        <img src="Hand Trowel.jpg" class="product-image">
+        <h3>Hand Trowel</h3>
+        <div class="price">₹199</div>
+        <div class="rating">
+            <i class="fas fa-star"></i> 4.6 (60 reviews)
+        </div>
+        <button class="add-to-cart">Add to Cart</button>
+    </div>
+
+    <div class="product-card">
+        <img src="pruning shears.jpg" class="product-image">
+        <h3>Pruning Shears</h3>
+        <div class="price">₹349</div>
+        <div class="rating">
+            <i class="fas fa-star"></i> 4.7 (88 reviews)
+        </div>
+        <button class="add-to-cart">Add to Cart</button>
+    </div>
+
+    <div class="product-card">
+        <img src="watering can.jpg" class="product-image">
+        <h3>Watering Can (5L)</h3>
+        <div class="price">₹299</div>
+        <div class="rating">
+            <i class="fas fa-star"></i> 4.5 (72 reviews)
+        </div>
+        <button class="add-to-cart">Add to Cart</button>
+    </div>
+
+    <div class="product-card">
+        <img src="garden gloves.jpg" class="product-image">
+        <h3>Garden Gloves (Pair)</h3>
+        <div class="price">₹149</div>
+        <div class="rating">
+            <i class="fas fa-star"></i> 4.4 (55 reviews)
+        </div>
+        <button class="add-to-cart">Add to Cart</button>
+    </div>
+
+    <div class="product-card">
+        <img src="manual weeder tool.jpg" class="product-image">
+        <h3>Manual Weeder Tool</h3>
+        <div class="price">₹249</div>
+        <div class="rating">
+            <i class="fas fa-star"></i> 4.6 (48 reviews)
+        </div>
+        <button class="add-to-cart">Add to Cart</button>
+    </div>
+
+    <div class="product-card">
+        <img src="soil tester kit.jpg" class="product-image">
+        <h3>Soil Tester Kit</h3>
+        <div class="price">₹499</div>
+        <div class="rating">
+            <i class="fas fa-star"></i> 4.7 (64 reviews)
+        </div>
+        <button class="add-to-cart">Add to Cart</button>
+    </div>
+</main>
+ <!-- JavaScript for Redirection -->
+ <script>
+    function redirectCategory(category) {
+      switch (category.toLowerCase()) {
+        case 'indoor plants':
+          window.location.href = 'file:///E:/NatureHaven/shop/shoppaage.html#indoor';
+          break;
+        case 'outdoor plants':
+          window.location.href = 'file:///E:/NatureHaven/shop/outdoor.html';
+          break;
+        case 'seeds':
+          window.location.href = 'file:///E:/NatureHaven/shop/seeds.html';
+          break;
+        case 'gardening tools':
+          window.location.href = 'file:///E:/NatureHaven/shop/gardeningtools.html';
+          break;
+        case 'fertilizers':
+          window.location.href = 'file:///E:/NatureHaven/shop/fertilizers.html';
+          break;
+        case 'tribal crafts':
+          window.location.href = 'file:///E:/NatureHaven/shop/tribalcraft.html';
+          break;
+        case 'organic vegetables':
+          window.location.href = 'file:///E:/NatureHaven/shop/organicvegetables.html';
+          break;
+        case 'organic flowers':
+          window.location.href = 'file:///E:/NatureHaven/shop/organicflower.html';
+          break;
+        default:
+          alert('Category not found!');
+      }
+    }
+  </script>
+  </section>
+
+  <div class="donate-AI">
+      <button class="btn btn-donate" onclick="redirectToPage('donate')">Donate Now</button>
+      <button class="btn btn-AI" onclick="redirectToPage('ai')">AI Suggestion</button>
+  </div>
+  
+  <script>
+      function redirectToPage(action) {
+          switch (action) {
+              case 'donate':
+                  window.location.href = 'file:///E:/NatureHaven/shop/donate.html';
+                  break;
+              case 'ai':
+                  window.location.href = 'file:///E:/NatureHaven/shop/AI.html';
+                  break;
+          }
+      }
+  </script>
+  
+</body>
+</html>

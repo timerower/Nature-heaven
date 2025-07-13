@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nature Heaven - Plant Store</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    /* Base Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Arial', sans-serif;
+    }
+
+    body {
+      background: #f5f5f5;
+    }
+
+    /* Header */
+    .header {
+      background: #2bae66;
+      padding: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: white;
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: bold;
+    }
+
+    .search-bar {
+      flex: 0 1 500px;
+      padding: 0.8rem;
+      border-radius: 25px;
+      border: none;
+      outline: none;
+    }
+
+    .user-actions i {
+      font-size: 1.5rem;
+      margin-left: 1rem;
+      cursor: pointer;
+    }
+
+    /* Main Layout */
+    .container {
+      display: flex;
+      gap: 2rem;
+      padding: 2rem;
+    }
+
+    /* Sidebar */
+    .categories {
+      width: 250px;
+      background: white;
+      padding: 1rem;
+      border-radius: 10px;
+    }
+
+    .category-item {
+      padding: 0.8rem;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .category-item:hover {
+      background: #2bae66;
+      color: white;
+      border-radius: 5px;
+    }
+
+    /* Product Grid */
+    .products {
+      flex: 1;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .product-card {
+      background: white;
+      border-radius: 10px;
+      padding: 1rem;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      text-align: center;
+      transition: 0.3s;
+    }
+
+    .product-card:hover {
+      transform: scale(1.05);
+    }
+
+    .product-image {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    .add-to-cart {
+      margin-top: 10px;
+      padding: 10px;
+      background: #2bae66;
+      color: white;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: 0.3s;
+    }
+
+    .add-to-cart:hover {
+      background: #248a50;
+    }
+
+    /* Cart Section */
+    .cart-section {
+      position: fixed;
+      right: -400px;
+      top: 0;
+      width: 400px;
+      height: 100vh;
+      background: white;
+      box-shadow: -2px 0 10px rgba(0,0,0,0.1);
+      transition: 0.3s;
+      padding: 1rem;
+    }
+
+    .cart-section.active {
+      right: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="logo">GreenMarket</div>
+    <input type="text" class="search-bar" placeholder="Search plants, tools, fertilizers...">
+    <div class="user-actions">
+      <i class="fas fa-user"></i>
+      <i class="fas fa-shopping-cart" id="cart-icon"></i>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <div class="container">
+    <!-- Categories -->
+    <aside class="categories">
+      <h3>Categories</h3>
+      <div class="category-item" onclick="redirectCategory('Indoor Plants')">Indoor Plants</div>
+      <div class="category-item" onclick="redirectCategory('Outdoor Plants')">Outdoor Plants</div>
+      <div class="category-item" onclick="redirectCategory('Seeds')">Seeds</div>
+      <div class="category-item" onclick="redirectCategory('Gardening Tools')">Gardening Tools</div>
+      <div class="category-item" onclick="redirectCategory('Fertilizers')">Fertilizers</div>
+      <div class="category-item" onclick="redirectCategory('Tribal Crafts')">Tribal Crafts</div>
+      <div class="category-item" onclick="redirectCategory('Organic Vegetables')">Organic Vegetables</div>
+      <div class="category-item" onclick="redirectCategory('Organic Flowers')">Organic Flowers</div>
+    </aside>
+
+    <!-- Products -->
+    <main class="products">
+      <div class="product-card">
+        <img src="Bougainvillea.jpg" class="product-image">
+        <h3>Bougainvillea</h3>
+        <div class="price">₹699</div>
+        <div class="rating"><i class="fas fa-star"></i> 4.7 (168 reviews)</div>
+        <button class="add-to-cart">Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <img src="Hibiscus.jpg" class="product-image">
+        <h3>Hibiscus (Gudhal)</h3>
+        <div class="price">₹349</div>
+        <div class="rating"><i class="fas fa-star"></i> 4.5 (132 reviews)</div>
+        <button class="add-to-cart">Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <img src="Mogra.jpg" class="product-image">
+        <h3>Mogra (Arabian Jasmine)</h3>
+        <div class="price">₹599</div>
+        <div class="rating"><i class="fas fa-star"></i> 4.8 (189 reviews)</div>
+        <button class="add-to-cart">Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <img src="Marigold.jpg" class="product-image">
+        <h3>Marigold (Genda)</h3>
+        <div class="price">₹199</div>
+        <div class="rating"><i class="fas fa-star"></i> 4.3 (98 reviews)</div>
+        <button class="add-to-cart">Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <img src="Sunflower.jpg" class="product-image">
+        <h3>Sunflower</h3>
+        <div class="price">₹299</div>
+        <div class="rating"><i class="fas fa-star"></i> 4.6 (157 reviews)</div>
+        <button class="add-to-cart">Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <img src="Zinnia.jpg" class="product-image">
+        <h3>Zinnia</h3>
+        <div class="price">₹249</div>
+        <div class="rating"><i class="fas fa-star"></i> 4.4 (87 reviews)</div>
+        <button class="add-to-cart">Add to Cart</button>
+      </div>
+    </main>
+  </div>
+
+  <!-- JavaScript for Redirection -->
+  <script>
+    function redirectCategory(category) {
+      switch (category.toLowerCase()) {
+        case 'indoor plants':
+          window.location.href = 'file:///E:/NatureHaven/shop/shoppaage.html#indoor';
+          break;
+        case 'outdoor plants':
+          window.location.href = 'file:///E:/NatureHaven/shop/shoppaage.html#outdoor';
+          break;
+        case 'seeds':
+          window.location.href = 'file:///E:/NatureHaven/shop/shoppaage.html#seeds';
+          break;
+        case 'gardening tools':
+          window.location.href = 'file:///E:/NatureHaven/shop/shoppaage.html#tools';
+          break;
+        case 'fertilizers':
+          window.location.href = 'file:///E:/NatureHaven/shop/shoppaage.html#fertilizers';
+          break;
+        case 'tribal crafts':
+          window.location.href = 'file:///E:/NatureHaven/shop/shoppaage.html#tribal';
+          break;
+        case 'organic vegetables':
+          window.location.href = 'file:///E:/NatureHaven/shop/shoppaage.html#vegetables';
+          break;
+        case 'organic flowers':
+          window.location.href = 'file:///E:/NatureHaven/shop/shoppaage.html#flowers';
+          break;
+        default:
+          alert('Category not found!');
+      }
+    }
+  </script>
+</body>
+</html>

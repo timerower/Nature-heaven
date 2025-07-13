@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nature Haven</title>
+    <link rel="icon" type="image/png" href="NH.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background-color: #f5f5f5;
+        }
+
+        .header {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+                        url('forest-header.jpg') center/cover no-repeat;
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            padding: 1rem 5%;
+            background: #2bae66;
+            color: white;
+        }
+
+        .mission-section {
+            padding: 4rem 5%;
+            background: white;
+            text-align: center;
+        }
+
+        .mission-grid {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        .mission-card {
+            width: 300px;
+            background: white;
+            padding: 1rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .mission-card img {
+            width: 100%;
+            height: 180px;
+            border-radius: 10px;
+            object-fit: cover;
+        }
+
+        .initiative-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 2rem 5%;
+            text-align: center;
+        }
+
+        .initiative-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .initiative-card img {
+            width: 100%;
+            height: 200px;
+            border-radius: 10px;
+            object-fit: cover;
+        }
+
+        .products-section {
+            padding: 4rem 5%;
+            background: #e8f5e9;
+            text-align: center;
+        }
+
+        .products-grid {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        .product-card {
+            background: white;
+            padding: 1rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            width: 250px;
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 200px;
+            border-radius: 10px;
+            object-fit: cover;
+        }
+
+        .volunteer-section {
+            padding: 4rem 5%;
+            background: url('volunteer-bg.jpg') center/cover no-repeat;
+            text-align: center;
+            color: white;
+        }
+
+        .volunteer-form input {
+            padding: 10px;
+            margin: 10px;
+            width: 80%;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .donate-join {
+            position: fixed;
+            right: 2rem;
+            bottom: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn-donate {
+            background: #2bae66;
+            color: white;
+        }
+
+        .btn-join {
+            background: #1d5c42;
+            color: white;
+        }
+
+        footer {
+            background: #1d5c42;
+            color: white;
+            padding: 2rem 5%;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <div class="logo">Nature Heaven</div>
+        <div class="nav-links">
+            <a href="#mission">Mission</a>
+            <a href="#initiatives">Initiatives</a>
+            <a href="#products">Products</a>
+        </div>
+    </nav>
+
+    <header class="header">
+        <h1>Protecting Our Natural Heritage</h1>
+        <p>Since 2019 | Working Across 15 Indian States | 1000+ Hectares Protected</p>
+    </header>
+
+    <section class="mission-section" id="mission">
+        <h2>Our Threefold Mission</h2>
+        <div class="mission-grid">
+            <div class="mission-card">
+                <img src="forest-safety.jpg" alt="Forest Conservation">
+                <h3>🌳 Forest Conservation</h3>
+                <p>Combatting deforestation through community-led reforestation programs</p>
+            </div>
+            <div class="mission-card">
+                <img src="tribal-support.jpg" alt="Tribal Support">
+                <h3>👨‍👩‍👧‍👦 Tribal Empowerment</h3>
+                <p>Supporting Adivasi communities through sustainable livelihood programs</p>
+            </div>
+            <div class="mission-card">
+                <img src="organic-farming.jpg" alt="Organic Farming">
+                <h3>🌱 Organic Revolution</h3>
+                <p>Promoting organic farming across 250+ villages</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="products-section" id="products">
+        <h2>Tribal Crafted Products</h2>
+        <div class="products-grid">
+            <div class="product-card">
+                <img src="bamboo-craft.jpg" alt="Bamboo Craft">
+                <h4>Traditional Bamboo Crafts</h4>
+                <p>₹599 | Made by Mishing Tribe, Assam</p>
+            </div>
+            <div class="product-card">
+                <img src="organic-honey.jpg" alt="Organic Honey">
+                <h4>Wild Forest Honey</h4>
+                <p>₹299 | Sourced from Odisha Forests</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="volunteer-section">
+        <h2>Join Our Movement</h2>
+        <div class="volunteer-form">
+            <input type="text" placeholder="Full Name">
+            <input type="email" placeholder="Email">
+            <button class="btn btn-join">Become Volunteer</button>
+        </div>
+    </section>
+
+    <div class="donate-join">
+        <button class="btn btn-donate">Donate Now</button>
+        <button class="btn btn-join">Join NGO</button>
+    </div>
+
+    <footer>
+        <p>Contact: contact@greenguardians.org | Toll-free: 1800-123-4567</p>
+        <p>© 2025 GreenGuardians. All rights reserved.</p>
+    </footer>
+</body>
+</html>

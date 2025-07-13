@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nature Haven</title>
+    <link rel="icon" type="image/png" href="NH.png">
+    <title>Eco-Friendly Donation Portal</title>
+    <style>
+        :root {
+            --primary-green: #2E7D32;
+            --secondary-green: #81C784;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-image: url('background.jpg'); /* You can change image URL */
+            background-size: cover;
+            background-position: center;
+            min-height: 100vh;
+            padding: 40px 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            max-width: 800px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(15px);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 0 30px rgba(0,0,0,0.3);
+            border: 2px solid var(--primary-green);
+        }
+
+        h1 {
+            color: var(--primary-green);
+            text-align: center;
+            font-size: 28px;
+        }
+
+        .form-section {
+            margin: 20px 0;
+            padding: 15px;
+            border-left: 4px solid var(--secondary-green);
+        }
+
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            color: #1B5E20;
+            font-weight: 500;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #C8E6C9;
+            border-radius: 4px;
+            background: rgba(255, 255, 255, 0.9);
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .donation-type {
+            display: flex;
+            gap: 20px;
+            margin: 15px 0;
+        }
+
+        .eco-badge {
+            background: #C8E6C9;
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 0.9em;
+        }
+
+        button {
+            background: var(--primary-green);
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 18px;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #1B5E20;
+        }
+
+        .required::after {
+            content: "*";
+            color: red;
+            margin-left: 3px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🌿 Support Environmental Initiatives</h1>
+        
+        <form id="donationForm">
+            <div class="form-section">
+                <h3>Event Details</h3>
+                <label class="required">Campaign Name</label>
+                <input type="text" required placeholder="e.g. Tree Plantation Drive">
+
+                <div class="grid-container">
+                    <div>
+                        <label class="required">Date (DD/MM/YYYY)</label>
+                        <input type="date" min="" required>
+                    </div>
+                    <div>
+                        <label class="required">Donation Amount (₹)</label>
+                        <input type="number" min="100" value="100" required>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-section">
+                <h3>Location Details</h3>
+                <label class="required">Full Address</label>
+                <textarea rows="3" required></textarea>
+
+                <div class="grid-container">
+                    <div>
+                        <label class="required">State</label>
+                        <select required>
+                            <option value="">Select</option>
+                            <option>Maharashtra</option>
+                            <option>Uttar Pradesh</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="required">City</label>
+                        <input type="text" required>
+                    </div>
+                </div>
+
+                <div class="grid-container">
+                    <div>
+                        <label class="required">PIN Code</label>
+                        <input type="number" pattern="[0-9]{6}" required>
+                    </div>
+                    <div>
+                        <label>Landmark</label>
+                        <input type="text">
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-section">
+                <h3>Contact Information</h3>
+                <div class="grid-container">
+                    <div>
+                        <label class="required">Full Name</label>
+                        <input type="text" required>
+                    </div>
+                    <div>
+                        <label class="required">Mobile</label>
+                        <input type="tel" pattern="[0-9]{10}" required>
+                    </div>
+                </div>
+
+                <label class="required">Email</label>
+                <input type="email" required>
+
+                <div class="donation-type">
+                    <div>
+                        <input type="radio" name="donationType" id="oneTime" required>
+                        <label for="oneTime">One-time Donation</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="donationType" id="monthly">
+                        <label for="monthly">Monthly Pledge</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-section">
+                <h3>Payment Options</h3>
+                <select required>
+                    <option value="">Select Payment Method</option>
+                    <option>UPI</option>
+                    <option>Net Banking</option>
+                    <option>Credit/Debit Card</option>
+                    <option>Paytm</option>
+                </select>
+
+                <div class="eco-badge">
+                    💚 Eligible for 80G Tax Exemption
+                </div>
+            </div>
+
+            <button type="submit">Submit Donation 🌱</button>
+        </form>
+    </div>
+
+    <script>
+        const dateInput = document.querySelector('input[type="date"]');
+        const today = new Date();
+        const minDate = new Date(today.setDate(today.getDate() + 28)).toISOString().split('T')[0];
+        dateInput.min = minDate;
+
+        document.querySelector('input[type="tel"]').addEventListener('input', function(e) {
+            this.value = this.value.replace(/\D/g,'').slice(0,10);
+        });
+
+        document.querySelector('input[pattern="[0-9]{6}"]').addEventListener('input', function(e) {
+            this.value = this.value.replace(/\D/g,'').slice(0,6);
+        });
+    </script>
+</body>
+</html>

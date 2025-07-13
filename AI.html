@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Nature Haven</title>
+    <link rel="icon" type="image/png" href="NH.png">
+  <title>🌿 AI Plant Recommendation System</title>
+  <style>
+    :root {
+      --primary-color: #4CAF50;
+      --secondary-color: #388e3c;
+      --bg-color: #f5f5f5;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: var(--bg-color);
+      padding: 30px;
+      margin: 0;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+      background: #fff;
+      border-radius: 12px;
+      padding: 30px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+      text-align: center;
+      color: var(--primary-color);
+      margin-bottom: 25px;
+    }
+
+    .form-section {
+      border-left: 5px solid var(--primary-color);
+      padding: 20px;
+      margin: 25px 0;
+      background: #fdfdfd;
+      border-radius: 6px;
+    }
+
+    .form-section h3 {
+      margin-top: 0;
+    }
+
+    label {
+      font-weight: bold;
+      display: block;
+      margin-top: 15px;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      margin-top: 5px;
+    }
+
+    .image-upload {
+      text-align: center;
+      border: 2px dashed #bbb;
+      padding: 20px;
+      margin-top: 20px;
+      border-radius: 10px;
+    }
+
+    #image-preview {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 15px;
+    }
+
+    #image-preview img {
+      max-height: 100px;
+      border-radius: 6px;
+    }
+
+    .btn-submit {
+      background: var(--primary-color);
+      color: white;
+      padding: 15px 20px;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      width: 100%;
+      margin-top: 20px;
+    }
+
+    .btn-submit:hover {
+      background: var(--secondary-color);
+    }
+
+    .result-section {
+      display: none;
+      margin-top: 30px;
+      padding: 25px;
+      background: #e8f5e9;
+      border-radius: 10px;
+      border-left: 6px solid var(--primary-color);
+    }
+
+    .loader {
+      display: none;
+      text-align: center;
+      margin: 20px 0;
+    }
+
+    .tooltip {
+      font-size: 0.9em;
+      color: gray;
+    }
+
+    @media screen and (max-width: 600px) {
+      .form-section {
+        padding: 15px;
+      }
+
+      h1 {
+        font-size: 22px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🌿 AI Plant Recommendation System</h1>
+
+    <form id="plantForm">
+      <!-- Personal Info -->
+      <div class="form-section">
+        <h3>👤 Personal Information</h3>
+        <label>Name:</label>
+        <input type="text" required placeholder="Your Name" />
+
+        <label>Location (City/State):</label>
+        <input type="text" required placeholder="e.g. Indore, Madhya Pradesh" />
+
+        <label>Purpose of Gardening:</label>
+        <select required>
+          <option value="">Select</option>
+          <option>Air Purification</option>
+          <option>Food (Vegetables, Herbs)</option>
+          <option>Beautification</option>
+          <option>Balcony Gardening</option>
+        </select>
+      </div>
+
+      <!-- Plant Preferences -->
+      <div class="form-section">
+        <h3>🌱 Plant Preferences</h3>
+        <label>Preferred Type of Plants:</label>
+        <select required>
+          <option value="">Select</option>
+          <option>Flowers</option>
+          <option>Vegetables</option>
+          <option>Fruits</option>
+          <option>Medicinal/Herbs</option>
+          <option>Succulents</option>
+        </select>
+
+        <label>Gardening Experience:</label>
+        <select>
+          <option>Beginner</option>
+          <option>Intermediate</option>
+          <option>Expert</option>
+        </select>
+      </div>
+
+      <!-- Garden Details -->
+      <div class="form-section">
+        <h3>🏡 Garden Environment</h3>
+        <label>Available Area (sq.ft):</label>
+        <input type="number" required placeholder="e.g. 60" />
+
+        <label>Daily Sunlight Exposure (Hours):</label>
+        <input type="number" required placeholder="e.g. 4-6" />
+
+        <label>Watering Frequency:</label>
+        <select required>
+          <option>Daily</option>
+          <option>Every 2 Days</option>
+          <option>Weekly</option>
+        </select>
+
+        <label>Soil Type:</label>
+        <select>
+          <option>Loamy</option>
+          <option>Sandy</option>
+          <option>Clay</option>
+          <option>Mixed</option>
+        </select>
+
+        <label>Any Pest Issues?</label>
+        <select>
+          <option>No</option>
+          <option>Yes - Aphids</option>
+          <option>Yes - Whiteflies</option>
+          <option>Other</option>
+        </select>
+      </div>
+
+      <!-- Image Upload -->
+      <div class="form-section image-upload">
+        <h3>📸 Upload Your Garden Photos (Optional)</h3>
+        <input type="file" multiple accept="image/*" id="gardenImages">
+        <div id="image-preview"></div>
+      </div>
+
+      <button type="submit" class="btn-submit">Get My AI Suggestions</button>
+
+      <div class="loader" id="loader">
+        <p>Processing your inputs... 🌱 Please wait...</p>
+      </div>
+    </form>
+
+    <!-- Result Section -->
+    <div class="result-section" id="result">
+      <h3>🎯 AI Recommendations:</h3>
+      <div id="recommendation-output"></div>
+    </div>
+  </div>
+
+  <script>
+    // Image Preview Handler
+    document.getElementById('gardenImages').addEventListener('change', function(e) {
+      const preview = document.getElementById('image-preview');
+      preview.innerHTML = '';
+      Array.from(e.target.files).forEach(file => {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+          const img = document.createElement('img');
+          img.src = e.target.result;
+          preview.appendChild(img);
+        };
+        reader.readAsDataURL(file);
+      });
+    });
+
+    // Form Submission Handler
+    document.getElementById('plantForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      document.getElementById('loader').style.display = 'block';
+      document.getElementById('result').style.display = 'none';
+
+      setTimeout(() => {
+        document.getElementById('loader').style.display = 'none';
+        document.getElementById('result').style.display = 'block';
+
+        document.getElementById('recommendation-output').innerHTML = `
+          <p>✅ Based on your location and preferences, here are our top plant suggestions:</p>
+          <ul>
+            <li><strong>🍅 Tomato</strong> – Needs 6+ hours sun, moderate water</li>
+            <li><strong>🌿 Tulsi (Basil)</strong> – Air purifier, easy to maintain</li>
+            <li><strong>🌼 Marigold</strong> – Pest repellent, good for beauty</li>
+          </ul>
+          <p>💡 Tip: Mix compost monthly and prune regularly for best results!</p>
+        `;
+      }, 2000); // Simulated delay
+    });
+  </script>
+</body>
+</html>
