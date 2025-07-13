@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Our Team</title>
+    <title>Nature Haven</title>
+    <link rel="icon" type="image/png" href="NH.png">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <!-- 🔹 Navigation Bar -->
+    <header>
+        <div class="container">
+            <div class="logo">Company Logo</div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Products</a></li>
+                    <li><a href="#">Solutions</a></li>
+                    <li><a href="#">Pricing</a></li>
+                    <li><a href="#">Resources</a></li>
+                    <li><a href="#">Company</a></li>
+                </ul>
+                <a href="#" class="cta-button">Get Started</a>
+                <div class="menu-icon">&#9776;</div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 🔹 Hero Section -->
+    <section class="hero">
+        <h1>Contact Our Team</h1>
+        <p>Got any questions? Our friendly team is here to help 24/7.</p>
+    </section>
+
+    <!-- 🔹 Contact Section -->
+    <section class="contact-container">
+        <div class="contact-form">
+            <h2>Get in Touch</h2>
+            <form action="#">
+                <div class="input-group">
+                    <input type="text" placeholder="First Name" required>
+                    <input type="text" placeholder="Last Name" required>
+                </div>
+                <input type="email" placeholder="Email Address" required>
+                <input type="tel" placeholder="Phone Number" required>
+                <textarea placeholder="Your Message" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+
+        <div class="contact-info">
+            <h2>Contact Information</h2>
+            <p><i class="fas fa-envelope"></i> support@company.com</p>
+            <p><i class="fas fa-phone"></i> +1 (123) 456-7890</p>
+            <p><i class="fas fa-map-marker-alt"></i> 123 Main Street, Indore, India</p>
+
+            <h3>Chat with Us</h3>
+            <p><a href="#">Live Chat</a> | <a href="#">WhatsApp</a> | <a href="#">Messenger</a></p>
+
+            <h3>Follow Us</h3>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-github"></i></a>
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Toggle mobile menu
+        document.querySelector(".menu-icon").addEventListener("click", function() {
+            document.querySelector(".nav-links").classList.toggle("active");
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,130 @@
+/* Global Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f7fa;
+    color: #333;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 50px;
+    background: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #ff6600;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links li {
+    display: inline;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+}
+
+.cta-button {
+    background-color: #ff6600;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* About Us Section */
+.about-us {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 80px 50px;
+    background: #f9fafc;
+}
+
+.about-text {
+    max-width: 500px;
+}
+
+.about-image img {
+    width: 400px;
+    border-radius: 10px;
+}
+
+/* Our Mission Section */
+.mission, .story {
+    display: flex;
+    align-items: center;
+    padding: 80px 50px;
+    gap: 50px;
+}
+
+.mission-image img, .story-image img {
+    width: 400px;
+    border-radius: 10px;
+}
+
+/* Stats Section */
+.stats {
+    text-align: center;
+    padding: 80px 50px;
+    background: #eef1f7;
+}
+
+.stats-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.stat {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    width: 200px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.stat img {
+    width: 50px;
+}
+
+.stat h3 {
+    margin: 10px 0;
+}
+
+.stat a {
+    text-decoration: none;
+    color: #ff6600;
+    font-weight: bold;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #222;
+    color: #fff;
+}
+
+footer a {
+    color: #ff6600;
+    text-decoration: none;
+}
+

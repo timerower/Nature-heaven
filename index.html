@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nature Haven </title>
+    <link rel="icon" type="image/png" href="NH.png">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: url('forest-bg.jpg') no-repeat center center/cover;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 30px;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+            text-align: center;
+            width: 300px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .input-group {
+            position: relative;
+            margin: 15px 0;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .input-group .icon {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .options {
+            display: flex;
+            justify-content: space-between;
+            font-size: 14px;
+        }
+
+        .login-btn {
+            width: 100%;
+            padding: 12px;
+            margin-top: 10px;
+            border: none;
+            background: #000;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .login-btn:hover {
+            background: #333;
+        }
+
+        .register-link {
+            margin-top: 10px;
+            font-size: 14px;
+        }
+
+        .register-link button {
+            background-color: #228B22;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .register-link button:hover {
+            background-color: #006400;
+        }
+
+        .donate-AI {
+            margin-top: 20px;
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        .btn-donate {
+            background-color: #ff9800;
+            color: white;
+        }
+
+        .btn-AI {
+            background-color: #2196f3;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Login Section -->
+    <div class="modal-content">
+        <h2>Login</h2>
+        <form>
+            <div class="input-group">
+                <input type="email" placeholder="Email" required>
+                <span class="icon">✉️</span>
+            </div>
+            <div class="input-group">
+                <input type="password" placeholder="Password" required>
+                <span class="icon">🔒</span>
+            </div>
+            <div class="options">
+                <label><input type="checkbox"> Remember me</label>
+                <a href="#">Forgot Password?</a>
+            </div>
+            <button type="submit" class="login-btn">Login</button>
+        </form>
+
+        <div class="register-link">
+            <p>Don't have an account?</p>
+            <button onclick="redirectToPage('register')">Register</button>
+        </div>
+    </div>
+
+    <!-- Donate / AI Section -->
+    <div class="donate-AI">
+        <button class="btn btn-donate" onclick="redirectToPage('donate')">Donate Now</button>
+        <button class="btn btn-AI" onclick="redirectToPage('ai')">AI Suggestion</button>
+    </div>
+
+    <script>
+        function redirectToPage(action) {
+            switch (action) {
+                case 'donate':
+                    window.location.href = 'file:///E:/NatureHaven/shop/donate.html';
+                    break;
+                case 'ai':
+                    window.location.href = 'file:///E:/NatureHaven/shop/AI.html';
+                    break;
+                case 'register':
+                    window.location.href = 'file:///E:/NatureHaven/homepage/loginpage/rigstration.html';
+                    break;
+            }
+        }
+    </script>
+</body>
+</html>
+

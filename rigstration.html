@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Nature Haven </title>
+    <link rel="icon" type="image/png" href="NH.png">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: url('forest-bg.jpg') no-repeat center center fixed;
+      background-size: cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .register-container {
+      backdrop-filter: blur(10px);
+      background-color: rgba(255, 255, 255, 0.15);
+      border-radius: 15px;
+      padding: 30px;
+      width: 100%;
+      max-width: 400px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+      color: white;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #ffffff;
+    }
+
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      margin-top: 5px;
+      background-color: rgba(255, 255, 255, 0.85);
+      color: #000;
+    }
+
+    input:focus, select:focus {
+      outline: none;
+      box-shadow: 0 0 5px #2bae66;
+    }
+
+    .btn {
+      margin-top: 20px;
+      width: 100%;
+      padding: 10px;
+      background-color: #2bae66;
+      color: white;
+      font-weight: bold;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: #259655;
+    }
+
+    .login-link {
+      text-align: center;
+      margin-top: 15px;
+      font-size: 14px;
+    }
+
+    .login-link a {
+      color: #8fd9a8;
+      text-decoration: none;
+    }
+
+    .login-link a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 500px) {
+      .register-container {
+        margin: 0 20px;
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <form class="register-container">
+    <h2>Register</h2>
+
+    <label for="name">Name</label>
+    <input type="text" id="name" name="name" placeholder="Your full name" required>
+
+    <label for="email">Email</label>
+    <input type="email" id="email" name="email" placeholder="example@email.com" required>
+
+    <label for="password">Password</label>
+    <input type="password" id="password" name="password" placeholder="Create a password" required>
+
+    <label for="address">Address</label>
+    <input type="text" id="address" name="address" placeholder="Your address" required>
+
+    <label for="role">Role</label>
+    <select id="role" name="role" required>
+      <option value="">Select role</option>
+      <option value="user">User</option>
+      <option value="admin">Admin</option>
+    </select>
+
+    <button type="submit" class="btn">Register</button>
+
+    <div class="login-link">
+      Already have an account? <a href="#">Login</a>
+    </div>
+  </form>
+
+</body>
+</html>
